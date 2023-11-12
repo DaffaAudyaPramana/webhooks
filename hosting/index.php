@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // JSON encode the data.
             $jsonData = json_encode($msg);
             // The URL to send the POST request to.
-            $url=URLSENDMESSAGE
+            $url=URLSENDMESSAGE;
             //$url = 'https://api.wa.my.id/api/send/message/text';
             // jika domain yang atas di blokir gunakan domain yang bawah
             //$url = 'https://cloud.wa.my.id/api/send/message/text';
