@@ -1,4 +1,4 @@
-package webhook
+package webhooks
 
 import (
 	"fmt"
@@ -10,7 +10,7 @@ import (
 )
 
 func TestGetENVToken(t *testing.T) {
-	fmt.Println(os.Getenv("MONGOSTRINGAWANGGA"))
+	fmt.Println(os.Getenv("MONGOSTRINGDAPA"))
 }
 
 func TestUpdateGetData(t *testing.T) {
