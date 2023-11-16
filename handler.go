@@ -18,7 +18,7 @@ func Post(w http.ResponseWriter, r *http.Request) {
 	var msg model.IteungMessage
 	var resp atmessage.Response
 	json.NewDecoder(r.Body).Decode(&msg)
-	link := "https://medium.com/@farhanriziq01/membuat-whatsauth-free-2fa-otp-notif-dan-whatsapp-gateway-api-gratis-c6052c4fb407"
+	link := "https://medium.com/@daffaaudyapramana03/cara-menggunakan-whatsauth-free-2fa-otp-notif-whatsapp-gateway-api-gratis-458105965936"
 	if r.Header.Get("Secret") == os.Getenv("SECRET") {
 		if msg.Message == "loc" || msg.Message == "Loc" || msg.Message == "lokasi" || msg.LiveLoc {
 			location, err := ReverseGeocode(msg.Latitude, msg.Longitude)
@@ -27,7 +27,7 @@ func Post(w http.ResponseWriter, r *http.Request) {
 				location = "Unknown Location"
 			}
 
-			reply := fmt.Sprintf("Aku ramal kamu pasti berada di %s \n Koordinatenya : %s - %s\n Cara Penggunaan WhatsAuth Ada di link dibawah ini"+
+			reply := fmt.Sprintf("Aku ramal kamu pasti berada di %s \n Koordinatnya : %s - %s\n Cara Penggunaan WhatsAuth Ada di link dibawah ini"+
 				" yaa %s\n", location,
 				strconv.Itoa(int(msg.Longitude)), strconv.Itoa(int(msg.Latitude)), link)
 			dt := &wa.TextMessage{
@@ -38,11 +38,11 @@ func Post(w http.ResponseWriter, r *http.Request) {
 			resp, _ = atapi.PostStructWithToken[atmessage.Response]("Token", os.Getenv("TOKEN"), dt, "https://api.wa.my.id/api/send/message/text")
 		} else {
 			randm := []string{
-				"yooo wassup dude " + msg.Alias_name + "\norangnya lagi ngebo \n bot vox dimari, ada bot vox jangan lari \n Cara penggunaan WhatsAuth ada di link berikut ini ya kak...\n" + link,
+				"yow sup man " + msg.Alias_name + "\norangnya lagi ngoding \n bot dapskuy dimari, ada bot dapskuy jangan lari \n Cara penggunaan WhatsAuth ada di link berikut ini ya ges...\n" + link,
 				"yang spam sok asik",
 				"lu cakep bro",
 				"kata gua mah kalo traktir temen tu dapet banyak pahala tau",
-				"nantangin boss??",
+				"dih nantang lu boss??",
 			}
 			dt := &wa.TextMessage{
 				To:       msg.Phone_number,
@@ -96,7 +96,7 @@ func Liveloc(w http.ResponseWriter, r *http.Request) {
 		location = "Unknown Location"
 	}
 
-	reply := fmt.Sprintf("Aku ramal kamu pasti berada di %s \n Koordinatenya : %s - %s\n", location,
+	reply := fmt.Sprintf("Aku sedang ramal kamu pasti berada di %s \n Koordinatenya : %s - %s\n", location,
 		strconv.Itoa(int(msg.Longitude)), strconv.Itoa(int(msg.Latitude)))
 
 	if r.Header.Get("Secret") == os.Getenv("SECRET") {
